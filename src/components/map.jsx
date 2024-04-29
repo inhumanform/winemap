@@ -8,11 +8,11 @@ function MapContainer() {
     <Map
       mapboxAccessToken="pk.eyJ1IjoibGNhdG9lIiwiYSI6ImNsMjU3end6dzFuOHUzYmpydzVvd2xyajcifQ.1KnX7kxeyNOmBvMdATH3vQ"
       initialViewState={{
-        longitude: -122.4,
-        latitude: 37.8,
-        zoom: 14
+        longitude: -98.48,
+        latitude: 39.0,
+        zoom: 4
       }}
-      style={{width: 600, height: 400}}
+      style={{width: 1900, height: 900}}
       mapStyle="mapbox://styles/lcatoe/clvh0cis305qp01pk7875ar8m"
     />
   );

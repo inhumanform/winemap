@@ -4,7 +4,7 @@ import App from './App.jsx';
 import './index.css';
 import Map from 'react-map-gl';
 import {MapProvider} from 'react-map-gl';
-import Navbar from '/home/drewnix/Development/code/phase-5/phase5project/winemap/src/components/navbar.jsx';
+import Navbar from '/home/drewnix/Development/code/phase-5/phase5project/winemap/src/components/navbar/navbar.jsx';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -12,7 +12,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <App />
 
     </MapProvider>
-    {/* <Map /> */}
-    {/* <Navbar /> */}
+    <Map />
+    <Navbar />
   </React.StrictMode>
 )
