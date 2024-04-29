@@ -1,0 +1,336 @@
+{
+    "Red": [
+        {
+            "name": "Agiorgitiko",
+            "color": "Red"
+        },
+        {
+            "name": "Alicante H. Bouschet",
+            "color": "Red"
+        },
+        {
+            "name": "Alphonse Lavallée",
+            "color": "Red"
+        },
+        {
+            "name": "Baga",
+            "color": "Red"
+        },
+        {
+            "name": "Barbera",
+            "color": "Red"
+        },
+        {
+            "name": "Blauer Portugieser",
+            "color": "Red"
+        },
+        {
+            "name": "Blauer Trollinger",
+            "color": "Red"
+        },
+        {
+            "name": "Blaufränkisch",
+            "color": "Red"
+        },
+        {
+            "name": "Bobal",
+            "color": "Red"
+        },
+        {
+            "name": "Bonarda",
+            "color": "Red"
+        },
+        {
+            "name": "Bordo",
+            "color": "Red"
+        },
+        {
+            "name": "Cabernet Franc",
+            "color": "Red"
+        },
+        {
+            "name": "Cabernet Sauvignon",
+            "color": "Red"
+        },
+        {
+            "name": "Carignan Noir",
+            "color": "Red"
+        },
+        {
+            "name": "Carmenere",
+            "color": "Red"
+        },
+        {
+            "name": "Castelão",
+            "color": "Red"
+        },
+        {
+            "name": "Concord",
+            "color": "Red"
+        },
+        {
+            "name": "Couderc Noir",
+            "color": "Red"
+        },
+        {
+            "name": "Crimson Seedless",
+            "color": "Red"
+        },
+        {
+            "name": "Criolla Grande",
+            "color": "Red"
+        },
+        {
+            "name": "Dornfelder",
+            "color": "Red"
+        },
+        {
+            "name": "Garnacha Tinta",
+            "color": "Red"
+        },
+        {
+            "name": "Isabella",
+            "color": "Red"
+        },
+        {
+            "name": "Jacquez",
+            "color": "Red"
+        },
+        {
+            "name": "Kyoho",
+            "color": "Red"
+        },
+        {
+            "name": "Liatiko",
+            "color": "Red"
+        },
+        {
+            "name": "Malbec",
+            "color": "Red"
+        },
+        {
+            "name": "Merlot",
+            "color": "Red"
+        },
+        {
+            "name": "Montepulciano",
+            "color": "Red"
+        },
+        {
+            "name": "Mourvèdre",
+            "color": "Red"
+        },
+        {
+            "name": "Pinot Noir",
+            "color": "Red"
+        },
+        {
+            "name": "Pinotage",
+            "color": "Red"
+        },
+        {
+            "name": "Red Globe",
+            "color": "Red"
+        },
+        {
+            "name": "Sangiovese",
+            "color": "Red"
+        },
+        {
+            "name": "Syrah",
+            "color": "Red"
+        },
+        {
+            "name": "Tempranillo",
+            "color": "Red"
+        },
+        {
+            "name": "Touriga Franca",
+            "color": "Red"
+        },
+        {
+            "name": "Touriga Nacional",
+            "color": "Red"
+        },
+        {
+            "name": "Trincadeira",
+            "color": "Red"
+        },
+        {
+            "name": "Xinomavro",
+            "color": "Red"
+        },
+        {
+            "name": "Zinfandel",
+            "color": "Red"
+        },
+        {
+            "name": "Zweigelt",
+            "color": "Red"
+        }
+    ],
+    "White": [
+        {
+            "name": "Airen",
+            "color": "White"
+        },
+        {
+            "name": "Arinto",
+            "color": "White"
+        },
+        {
+            "name": "Assyrtiko",
+            "color": "White"
+        },
+        {
+            "name": "Bianca",
+            "color": "White"
+        },
+        {
+            "name": "Catarratto Bianco Comune",
+            "color": "White"
+        },
+        {
+            "name": "Chardonnay",
+            "color": "White"
+        },
+        {
+            "name": "Chenin Blanc",
+            "color": "White"
+        },
+        {
+            "name": "Colombard",
+            "color": "White"
+        },
+        {
+            "name": "Crimson Seedless",
+            "color": "White"
+        },
+        {
+            "name": "Cserszegi Fuszeres",
+            "color": "White"
+        },
+        {
+            "name": "Fernão Pires",
+            "color": "White"
+        },
+        {
+            "name": "Furmint",
+            "color": "White"
+        },
+        {
+            "name": "Glera",
+            "color": "White"
+        },
+        {
+            "name": "Italia",
+            "color": "White"
+        },
+        {
+            "name": "Kerner",
+            "color": "White"
+        },
+        {
+            "name": "Muscat de Hambourg",
+            "color": "White"
+        },
+        {
+            "name": "Muscat of Alexandria",
+            "color": "White"
+        },
+        {
+            "name": "Müller Thurgau",
+            "color": "White"
+        },
+        {
+            "name": "Niagara Branca",
+            "color": "White"
+        },
+        {
+            "name": "Pardina",
+            "color": "White"
+        },
+        {
+            "name": "Pedro Ximenez",
+            "color": "White"
+        },
+        {
+            "name": "Pinot Blanc",
+            "color": "White"
+        },
+        {
+            "name": "Pinot Gris",
+            "color": "White"
+        },
+        {
+            "name": "Riesling",
+            "color": "White"
+        },
+        {
+            "name": "Sauvignon Blanc",
+            "color": "White"
+        },
+        {
+            "name": "Savvatiano",
+            "color": "White"
+        },
+        {
+            "name": "Sultanina",
+            "color": "White"
+        },
+        {
+            "name": "Sylvaner",
+            "color": "White"
+        },
+        {
+            "name": "Sémillon",
+            "color": "White"
+        },
+        {
+            "name": "Síria",
+            "color": "White"
+        },
+        {
+            "name": "Torrontes Riojano",
+            "color": "White"
+        },
+        {
+            "name": "Ugni Blanc",
+            "color": "White"
+        },
+        {
+            "name": "Victoria",
+            "color": "White"
+        },
+        {
+            "name": "Viura",
+            "color": "White"
+        },
+        {
+            "name": "Welschriesling",
+            "color": "White"
+        }
+    ],
+    "Rosé": [
+        {
+            "name": "Cereza",
+            "color": "Rosé"
+        },
+        {
+            "name": "Mission",
+            "color": "Rosé"
+        },
+        {
+            "name": "Moscatel Rosado",
+            "color": "Rosé"
+        },
+        {
+            "name": "Niagara Rosada",
+            "color": "Rosé"
+        },
+        {
+            "name": "Roditis",
+            "color": "Rosé"
+        }
+    ]
+}
