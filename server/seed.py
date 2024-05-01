@@ -21,8 +21,8 @@ if __name__ == '__main__':
         g6 = Grapes(name="Rkatsiteli", color='White')
 
         pr1 = ParentRegions(name="California", country='USA')
-        pr2 = ParentRegions(name="Oregon", country='USA')  # Removed trailing comma
-        pr3 = ParentRegions(name="New York", country='USA')  # Removed trailing comma
+        pr2 = ParentRegions(name="Oregon", country='USA')  
+        pr3 = ParentRegions(name="New York", country='USA')  
         pr4 = ParentRegions(name="Virginia", country='USA')
         pr5 = ParentRegions(name="Washington", country='USA')
 
@@ -38,7 +38,7 @@ if __name__ == '__main__':
         g2.subregions.extend([sr1, sr2, sr3, sr4, sr5, sr6, sr7])
         g3.subregions.append(sr2)
         g4.subregions.extend([sr1, sr2, sr3, sr4, sr6, sr7])
-        g5.subregions.extend([sr1, sr6, sr5])  # sr6 is repeated, is this intentional?
+        g5.subregions.extend([sr1, sr6, sr5]) 
         g6.subregions.extend([sr2, sr7])
 
         # Associate SubRegions with ParentRegions
