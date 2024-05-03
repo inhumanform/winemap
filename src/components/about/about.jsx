@@ -28,7 +28,7 @@ function About() {
                     <div className="max-w-736 mx-auto space-y-responsive-xl-32 text-center"></div>
                     <h2 className="text-heading-md">Holistic Wine Data for Professionals and Wine Lovers</h2>
                     <p className="text-body-lg">
-                        "We put all the wine data in one, easy to reach place. Now pay me for it."
+                        All the wine data in one, easy to reach place. 
                     </p>
                 </div>
                 <div className="max-w-1168 mx-auto">
@@ -43,7 +43,7 @@ function About() {
                                         <div className="text-utility-lg font-bold">American Viticultural Areas</div>
                                     </div>
                                     <div className="text-center mt-16 text-body-md dark:text-black lg:border-t lg:border-t-gray-100 lg:pt-24">
-                                        "Starting with the US, we are mapping every recognized wine region in the world"
+                                        Starting with the US, we are mapping every recognized wine region in the world
                                     </div>
                                 </article>
                             </div>

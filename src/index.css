@@ -18,26 +18,13 @@
 }
 
 .app-container {
-  /* padding-top: 80px; */
-  padding-left: 350px;
+
+  padding-left: 64px;
   display: relative;
   flex: table-column
 }
 
-/* .grape-name-header {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  grid-template-rows: repeat(6, 1fr);
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
-  }
-  
-  .div1 { grid-area: 1 / 3 / 2 / 5; }
-  .div2 { grid-area: 2 / 3 / 4 / 5; }
-  .div3 { grid-area: 1 / 6 / 4 / 7; }
-  .div4 { grid-area: 4 / 2 / 7 / 6; } */
-
   #grape-search {
-    
+
   }
   

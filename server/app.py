@@ -33,13 +33,9 @@ class AllGrapes(Resource):
 
     def get(self):
         grapes = Grapes.query.all()
-        # response_body = [grapes.to_dict(only=('id', 'name', 'color', 'subregions', 'image')) for grapes in grapes]
         response_body = [grapes.to_dict(only=('id', 'name', 'color', 'image')) for grapes in grapes]
-        # ipdb.set_trace()
         return make_response(response_body, 200)
     
-
-
 api.add_resource(AllGrapes, '/grapes')
 
 
