@@ -29,6 +29,7 @@ class Grapes(db.Model, SerializerMixin):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String, nullable=False, unique=True)
     color = db.Column(db.String, nullable=False)
+    image = db.Column(db.String)
 
     subregions = db.Relationship(
         'SubRegions', secondary=grapes_subregions, back_populates='grapes'
@@ -88,7 +89,7 @@ class User(db.Model, SerializerMixin):
     admin = db.Column(db.Boolean, default=False)
 
     @validates('email_address')
-    def validate_email(self, key, email):
+    def validate_email(self, attr, email):
         if '@' not in email:
             raise ValueError("Please enter a valid email address")
         return email

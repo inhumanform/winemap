@@ -4,7 +4,7 @@ import SvgGrapes from "../../Icons/Grapes.jsx";
 import SvgHand from '../../Icons/Hand.jsx';
 import './navbarstyle.css';
 import { Link } from "react-router-dom";
-import { NavLink } from "react-router-dom";
+
 
 
 const Navbar = () => {

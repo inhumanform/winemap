@@ -8,17 +8,19 @@ if __name__ == '__main__':
         db.create_all()
 
         # Clear existing data
+        db.session.query(grapes_subregions).delete()
         db.session.query(Grapes).delete()
         db.session.query(ParentRegions).delete()
         db.session.query(SubRegions).delete()
         db.session.query(User).delete()
 
-        g1 = Grapes(name="Cabernet Sauvignon", color='Red')
-        g2 = Grapes(name="Chardonnay", color='White')
-        g3 = Grapes(name="Riesling", color='White')
-        g4 = Grapes(name="Pinot Noir", color='Red')
-        g5 = Grapes(name="Sauvignon Blanc", color='White')
-        g6 = Grapes(name="Rkatsiteli", color='White')
+
+        g1 = Grapes(name="Cabernet Sauvignon", color='Red', image='../public/cabernetsauvignon.jpg')
+        g2 = Grapes(name="Chardonnay", color='White', image='../public/chardonnay.jpeg')
+        g3 = Grapes(name="Riesling", color='White', image='../public/Riesling.jpg')
+        g4 = Grapes(name="Pinot Noir", color='Red', image='../public/pinotnoir.jpg')
+        g5 = Grapes(name="Sauvignon Blanc", color='White', image='../public/sauvignon-blanc.jpg')
+        g6 = Grapes(name="Rkatsiteli", color='White', image='../public/Rkatsiteli.jpg')
 
         pr1 = ParentRegions(name="California", country='USA')
         pr2 = ParentRegions(name="Oregon", country='USA')  

@@ -15,7 +15,7 @@ function MapContainer() {
         latitude: 39.0,
         zoom: 4
       }}
-      style={{width: 1900, height: 900, left: 60}}
+      style={{width: 2500, height: 1270, left: 60, padding: '6px, 12px', position: 'absolute' }}
       mapStyle="mapbox://styles/lcatoe/clvh0cis305qp01pk7875ar8m"
     />
   );
