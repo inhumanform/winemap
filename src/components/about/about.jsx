@@ -15,7 +15,7 @@ function About() {
                 <div className='md:left-[10%] max-w-[1100px] m-auto absolute p-4'>
 
                     <h1 className='font-bold text-5xl md:text-7xl drop-shadow-2xl'>
-                        Wine Info at Your Fingertips
+                        Wine Info On Demand
                     </h1>
                     <p className='max-w-[600px] drop-shadow-2xl py-2 text-xl'>
                         The wine education tool developed by a somm, for somms
