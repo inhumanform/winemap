@@ -1,7 +1,7 @@
 import './index.css'
 import Navbar from './components/navbar/navbar.jsx';
 import MapContainer from './components/map/map.jsx';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Home from '/home/drewnix/Development/code/phase-5/phase5project/winemap/src/components/home/home.jsx'
 import Grapes from './components/grapes/GrapeParent/grapes.jsx'
@@ -10,12 +10,24 @@ import { GrapeContext } from './components/grapes/GrapeParent/GrapeContext.jsx';
 import { useContext } from 'react';
 import About from './components/about/about.jsx'
 import Regions from './components/regions/regions.jsx'
+import { LoginForm, SignupForm } from './components/login/login.jsx'
 
 
 function App() {
 
   const value = useContext(GrapeContext)
+  const [user, setUser] = useState([null])
   console.log(value)
+
+  useEffect(() => {
+    // 'wristband'
+    fetch("/check_session")
+    .then((response) => {
+      if (response.ok) {
+        response.json().then((user) => setUser(user));
+      }
+    });
+  }, []);
 
   return (
 
@@ -29,6 +41,8 @@ function App() {
         <Route path="/grapes" element={<Grapes />} /> 
         <Route path='/regions' element={<Regions />} />
         <Route path='/about' element={<About />} />
+        <Route path='login' element={<LoginForm />} />
+        <Route path='/signup' element={<SignupForm />} />
       </Routes>
       </div>
     </div>

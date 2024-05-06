@@ -9,7 +9,6 @@ function Grapes() {
   useEffect(() => {
     fetch('http://127.0.0.1:5555/grapes')
       .then(response => response.json())
-      // .then(response => console.log(response.json()))
       .then(data => {
         setGrapes(data);
         setFilteredGrapes(data); 
@@ -66,8 +65,8 @@ function Grapes() {
             <li key={grape.id} className="grape-picture">
               <img src={grape.image} alt={grape.name} />
               <h4>{grape.name}</h4>
-              <p>Color: {grape.color}</p>
-              <p>Subregions: {grape.subregions}</p>
+              <p>{grape.color}</p>
+              <p>{grape.subregions}</p>
             </li>
           ))}
         </ul>

@@ -4,6 +4,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask import Flask, request, session, jsonify, make_response
 from flask_restful import Resource, Api
 from flask_migrate import Migrate
+
 import os
 import ipdb
 
@@ -17,13 +18,11 @@ app.json.compact = False
 CORS(app)
 migrate = Migrate(app, db)
 
+
 db.init_app(app)
 
 api = Api(app)
 
-
-
-# Views go here!
 
 @app.route('/')
 def index():
@@ -99,76 +98,115 @@ class NewGrapes(Resource):
 
         return response
                 
-
-# class ClearSession(Resource):
-
-#     def delete(self):
+class AllSubregions(Resource):
+    def get(self):
+        subregions = SubRegions.query.all()
+        response_body = [subregions.to_dict]
+        return make_response(response_body, 200)
     
-#         session['page_views'] = None
-#         session['user_id'] = None
-
-#         return {}, 204
+api.add_resource(AllSubregions, '/subregions')
 
 
-# class Signup(Resource):
+class SubregionsByID(Resource):
 
-#     def post(self):
+    def get(self, id):
+        subregions = SubRegions.query.filter(SubRegions.id ==id).first()
+
+        if (subregions):
+            response_body = subregions.to_dict()
+            return make_response(response_body, 200)
+        else:
+            return make_response({'error': 'Region not found'}, 404)
         
-#         username = request.get_json()['username']
-#         password = request.get_json()['password']
+    def delete(self, id):
+        subregions = db.session.get(SubRegions, id)
 
-#         if username and password:
-            
-#             new_user = User(username=username)
-#             new_user.password_hash = password
-#             db.session.add(new_user)
-#             db.session.commit()
+        if(subregions):
+            db.session.delete(subregions)
+            db.session.commit()
+            response_body = {}
+            return make_response(response_body, 204)
+        else:
+            response_body = {
+                'error' : 'Region not found'
+            }
+            return make_response(response_body, 404)
+        
+    def patch(self, id):
+        data = request.get_json()
 
-#             session['user_id'] = new_user.id
-            
-#             return new_user.to_dict(), 201
+        subregions = SubRegions.query.filter_by(id=id).first()
 
-#         return {'error': '422 Unprocessable Entity'}, 422
+        for attr in data:
+            setattr(subregions, attr, data[attr])
+
+            db.session.add(subregions)
+            db.session.commit()
+
+            return make_response(subregions.to_dict(), 200)
+        
+        api.add_resource(SubregionsByID, 'subregions/<int:id>')
+
+
+class Login(Resource):
+
+    def post(self):
+        user = User.query.filter(
+            User.username == request.get_json()['username']
+        ).first()
+
+        session['user_id'] = user.id
+        return user.to_dict()
+    
+api.add_resource(Login, '/login')
     
 
-# class CheckSession(Resource):
+class CheckSession(Resource):
 
-#     def get(self):
+    def get(self):
+        user = User.query.filter(User.id == session.get('user_id')).first()
+        if user:
+            return user.to_dict()
+        else:
+            return {'message': '401: Not Authorized'}, 401
 
-#         if session.get('user_id'):
+api.add_resource(CheckSession, '/check_session')
+
+class Logout(Resource):
+
+    def delete(self): 
+        session['user_id'] = None
+        return {'message': '204: No Content'}, 204
+
+api.add_resource(Logout, '/logout')
+
+
+class Signup(Resource):
+
+    def post(self):
+        
+        username = request.get_json()['username']
+        password = request.get_json()['password']
+
+        if username and password:
             
-#             user = User.query.filter(User.id == session['user_id']).first()
+            new_user = User(username=username)
+            new_user.password_hash = password
+            db.session.add(new_user)
+            db.session.commit()
+
+            session['user_id'] = new_user.id
             
-#             return user.to_dict(), 200
+            return new_user.to_dict(), 201
 
-#         return {}, 204
+        return {'error': '422 Unprocessable Entity'}, 422
+    
+api.add_resource(Signup, '/signup', endpoint='signup')
+    
 
-# class Login(Resource):
-
-#     def post(self):
-
-#         username = request.get_json()['username']
-#         password = request.get_json()['password']
-
-#         user = User.query.filter(User.username == username).first()
-
-#         if user.authenticate(password):
-
-#             session['user_id'] = user.id
-#             return user.to_dict(), 200
-
-#         return {'error': '401 Unauthorized'}, 401
-
-# class Logout(Resource):
-
-#     def delete(self):
-
-#         session['user_id'] = None
-
-#         return {}, 204
 
 # api.add_resource(ClearSession, '/clear', endpoint='clear')
-# api.add_resource(Signup, '/signup', endpoint='signup')
+
 # api.add_resource(CheckSession, '/check_session', endpoint='check_session')
 # api.add_resource(Login, '/login', endpoint='login')
 # api.add_resource(Logout, '/logout', endpoint='logout')

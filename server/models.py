@@ -3,6 +3,10 @@ from sqlalchemy import MetaData
 from sqlalchemy_serializer import SerializerMixin
 from sqlalchemy.ext.associationproxy import association_proxy
 from sqlalchemy.orm import validates
+from sqlalchemy.ext.hybrid import hybrid_method
+from sqlalchemy.ext.hybrid import hybrid_property
+
+
 
 metadata = MetaData(
     naming_convention={
@@ -11,6 +15,7 @@ metadata = MetaData(
 )
 
 db = SQLAlchemy(metadata=metadata)
+
 
 # Models go here!
 
@@ -84,9 +89,25 @@ class User(db.Model, SerializerMixin):
     first_name = db.Column(db.String, nullable=False)
     last_name = db.Column(db.String, nullable=False)
     username = db.Column(db.String, nullable=False, unique=True)
-    password = db.Column(db.String, nullable=False)
+    _password_hash = db.Column(db.String, nullable=False)
     email_address = db.Column(db.String, nullable=False, unique=True)
     admin = db.Column(db.Boolean, default=False)
+
+
+    @hybrid_property
+    def password_hash(self):
+        return self._password_hash
+    
+    @password_hash.setter
+    def password_hash(self, password):
+        password_hash = bcrypt.generate_password_hash(
+            password.encode('utf-8'))
+        self._password_hash = password_hash.decode('utf-8')
+
+    def authenticate(self, password):
+        return bcrypt.check_password_hash(
+            self._password_hash, password.encode('utf-8'))
+    
 
     @validates('email_address')
     def validate_email(self, attr, email):
