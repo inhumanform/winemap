@@ -3,17 +3,15 @@ from sqlalchemy import MetaData
 from sqlalchemy_serializer import SerializerMixin
 from sqlalchemy.ext.associationproxy import association_proxy
 from sqlalchemy.orm import validates
+from sqlalchemy.ext.hybrid import hybrid_method
 from sqlalchemy.ext.hybrid import hybrid_property
-
-from config import db, bcrypt
-
-
+from flask_bcrypt import Bcrypt
 
 # May need to rename app.py to accommodate import, bcrypt
-# from app import app as app
+from app import app
 
 
-
+bcrypt = Bcrypt(app)
 
 metadata = MetaData(
     naming_convention={
