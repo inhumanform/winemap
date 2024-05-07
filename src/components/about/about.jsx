@@ -14,13 +14,15 @@ function About() {
             <div className='absolute top-0 w-full h-full flex flex-col justify-center text-white'>
                 <div className='md:left-[10%] max-w-[1100px] m-auto absolute p-4'>
 
-                    <h1 className='font-bold text-5xl md:text-7xl drop-shadow-2xl'>
+                    <h1 className='font-bold text-5xl md:text-7xl drop-shadow-2xl font-display'>
                         Wine Info On Demand
                     </h1>
-                    <p className='max-w-[600px] drop-shadow-2xl py-2 text-xl'>
+                    <p className='max-w-[600px] drop-shadow-2xl py-2 text-xl font-display '>
                         The wine education tool developed by a somm, for somms
                     </p>
+                    <a href="/map">
                     <button className='bg-white text-black '>Start Exploring</button>
+                    </a>
                 </div>
             </div>
             <div className="bg-gray-100 overflow-hidden pt-responsive-xl-128 relative pb-responsive-xl-389" data-component="ImpactNumberBlockHomepage">
@@ -37,7 +39,7 @@ function About() {
                             <div className="p-responsive-xl-32">
                                 <article>
                                     <div className="text-center dark:text-black">
-                                        <div className="text-heading-2xl">
+                                        <div className="text-heading-4xl">
                                             " 269 "
                                         </div>
                                         <div className="text-utility-lg font-bold">American Viticultural Areas</div>
