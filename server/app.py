@@ -1,27 +1,30 @@
 #!/usr/bin/env python3
 from flask_cors import CORS
-from flask_sqlalchemy import SQLAlchemy
+# from flask_sqlalchemy import SQLAlchemy
 from flask import Flask, request, session, jsonify, make_response
-from flask_restful import Resource, Api
-from flask_migrate import Migrate
+from flask_restful import Resource
+# from flask_migrate import Migrate
+# from flask_bcrypt import Bcrypt
+from config import app, db, api
+from models import db, User, SubRegions, Grapes
 
 import os
 import ipdb
 
-from models import db, User, ParentRegions, SubRegions, Grapes
 
-app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///winemap.db'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.json.compact = False
+
+# app = Flask(__name__)
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///winemap.db'
+# app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+# app.json.compact = False
 
 CORS(app)
-migrate = Migrate(app, db)
+# migrate = Migrate(app, db)
 
 
-db.init_app(app)
-
-api = Api(app)
+# db.init_app(app)
+# bcrypt = Bcrypt(app)
+# api = Api(app)
 
 
 @app.route('/')
@@ -187,11 +190,17 @@ class Signup(Resource):
         
         username = request.get_json()['username']
         password = request.get_json()['password']
+        first_name = request.get_json()['first_name']
+        last_name = request.get_json()['last_name']
+        email = request.get_json()['email_address']
+
 
         if username and password:
             
             new_user = User(username=username)
-            new_user.password_hash = password
+            new_user.password = Bcrypt.generate_password_hash(
+            password.encode('utf-8'))
+            new_user._password_hash = new_user.password_hash.decode('utf-8')
             db.session.add(new_user)
             db.session.commit()
 
