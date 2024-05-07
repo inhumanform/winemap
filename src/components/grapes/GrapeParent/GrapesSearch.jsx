@@ -6,11 +6,11 @@ function GrapesSearch() {
 
   return (
     <div>
-      <label htmlFor="grape-search" class="block mb-2 text-sm font-medium text-emerald-900 dark:text-emerald-900">Search Grapes:</label>
+      <label htmlFor="grape-search" className="block mb-2 text-sm font-medium text-emerald-900 dark:text-emerald-900">Search Grapes:</label>
       <input
         type="text"
         id="grape-search"
-        class="coolGray-500 border border-gray-300 "
+        className="coolGray-500 border border-gray-300 "
         value={searchQuery}
         onChange={(event) => handleSearch(event.target.value)}
       />
