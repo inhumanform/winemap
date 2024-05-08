@@ -7,12 +7,8 @@ from sqlalchemy.ext.hybrid import hybrid_method
 from sqlalchemy.ext.hybrid import hybrid_property
 # from flask_bcrypt import Bcrypt
 
-from config import db, bcrypt, app
-# May need to rename app.py to accommodate import, bcrypt
-# from app import app
+from config import db, bcrypt
 
-
-# bcrypt = Bcrypt(app)
 
 metadata = MetaData(
     naming_convention={
