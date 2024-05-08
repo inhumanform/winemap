@@ -8,7 +8,7 @@ function GrapesList({ asLink = false }) {
   const handleGrapeClick = (grapeId) => {
     setSelectedGrapeId(grapeId);
   };
-
+console.log(filteredGrapes)
   return (
     <div>
       <ul>

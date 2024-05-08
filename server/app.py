@@ -1,13 +1,14 @@
 #!/usr/bin/env python3
 from flask_cors import CORS
-from flask_sqlalchemy import SQLAlchemy
+# from flask_sqlalchemy import SQLAlchemy
 from flask import Flask, request, session, jsonify, make_response
 from flask_restful import Resource, Api
 from flask_migrate import Migrate
 
-import os
-import ipdb
+# import os
+# import ipdb
 
+from config import app, db, api
 from models import db, User, ParentRegions, SubRegions, Grapes
 
 app = Flask(__name__)

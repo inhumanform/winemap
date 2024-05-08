@@ -1,6 +1,6 @@
 import './home.css';
 import React, { useState, useEffect } from 'react';
-import vineyardhero from '/home/drewnix/Development/code/phase-5/phase5project/winemap/src/components/home/homeimages/vineyard.mp4';
+import vineyardhero from '../../../public/aboutimages/aerial-vineyard.jpg';
 
 
 function Home() {

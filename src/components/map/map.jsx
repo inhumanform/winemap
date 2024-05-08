@@ -36,6 +36,8 @@ const [selectedAVA, setSelectedAVA] = useState(null);
 // console.log('first_multiPolygon', multiPolygons[0], multiPolygons[12], multiPolygons[20])
 // console.log('first_polygon', polygons[0], polygons[1], polygons[87])
 
+
+
 return (
    <div>
     <Map
@@ -48,6 +50,59 @@ return (
       style={{width: 2500, height: 1270, left: 60, padding: '6px, 12px', position: 'absolute' }}
       mapStyle="mapbox://styles/lcatoe/clvh0cis305qp01pk7875ar8m"
     >
+
+    {bb_regions.map(ava => (
+      // if ava.
+      <Marker 
+
+      key={ava.properties.Name}
+      latitude={ava.geometry.type == 'MultiPolygon' ? ava.geometry.coordinates[0][0][0][1] : ava.geometry.coordinates[0][0][1]  }
+      longitude={ava.geometry.type == 'MultiPolygon' ?  ava.geometry.coordinates[0][0][0][0] :  ava.geometry.coordinates[0][0][0]}
+  
+      >
+
+        <button className='marker-btn' 
+        id={ava.properties.Name}
+          onClick={event => {
+            event.preventDefault();
+            // console.log('ava', ava)
+            setSelectedAVA(ava);
+  
+          }}
+          >
+          <img src='/assets/orange-pin.svg' alt='AVA Icon' />
+          </button>
+      </Marker>
+    ))}
+    
+
+{console.log('selectedava', selectedAVA )}
+{selectedAVA  ? (
+          <Popup
+          latitude={selectedAVA.geometry.type == 'MultiPolygon' ? selectedAVA.geometry.coordinates[0][0][0][1] : selectedAVA.geometry.coordinates[0][0][1]  }
+          longitude={selectedAVA.geometry.type == 'MultiPolygon' ?  selectedAVA.geometry.coordinates[0][0][0][0] :  selectedAVA.geometry.coordinates[0][0][0]}
+            onClose={() => {
+              setSelectedAVA(null);
+            }}
+          >
+            <div>
+              <h2>{selectedAVA.properties.Name}</h2>
+              <p>{selectedAVA.properties.States}</p>
+            </div>
+          </Popup>
+        ) : null}
+</Map>
+    </div>
+  );
+}
+export default MapContainer;
+
+
+
+
+
+
+
     {/* {avaData.features.map(ava => (
       <Marker 
       key={ava.properties.Name}
@@ -82,36 +137,3 @@ return (
           </button>
       </Marker>
     ))} */}
-    {bb_regions.map(ava => (
-      // if ava.
-      <Marker 
-      key={ava.properties.Name}
-      latitude={ava.geometry.type == 'MultiPolygon' ? ava.geometry.coordinates[0][0][0][1] : ava.geometry.coordinates[0][0][1]  }
-      longitude={ava.geometry.type == 'MultiPolygon' ?  ava.geometry.coordinates[0][0][0][0] :  ava.geometry.coordinates[0][0][0]}
-      >
-        <button className='marker-btn'>
-          <img src='/assets/orange-pin.svg' alt='AVA Icon' />
-          </button>
-      </Marker>
-    ))}
-
-{selectedAVA ? (
-          <Popup
-          latitude={selectedAVA.geometry.type == 'MultiPolygon' ? selectedAVA.geometry.coordinates[0][0][0][1] : selectedAVA.geometry.coordinates[0][0][1]  }
-          longitude={selectedAVA.geometry.type == 'MultiPolygon' ?  selectedAVA.geometry.coordinates[0][0][0][0] :  selectedAVA.geometry.coordinates[0][0][0]}
-            onClose={() => {
-              setSelectedAVA(null);
-            }}
-          >
-            <div>
-              <h2>{selectedAVA.properties.Name}</h2>
-              <p>{selectedAVA.properties.States}</p>
-            </div>
-          </Popup>
-        ) : null}
-</Map>
-    </div>
-  );
-}
-export default MapContainer;
-

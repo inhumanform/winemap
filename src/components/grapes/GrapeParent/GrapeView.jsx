@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 
 
 function GrapeView() {
-  const  {grapeId} = useParams();
+  const  {grapeId} = useParams('0');
   const [selectedGrape, setSelectedGrape] = useState(0);
 
 
@@ -22,6 +22,7 @@ function GrapeView() {
 
     fetchSelectedGrape();
   }, [grapeId]);
+
 
   return (
     <div className='grape-name-header fixed flex items-center flex-col top-02  '>

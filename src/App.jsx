@@ -3,7 +3,7 @@ import Navbar from './components/navbar/navbar.jsx';
 import MapContainer from './components/map/map.jsx';
 import React, { useEffect, useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import Home from '/home/drewnix/Development/code/phase-5/phase5project/winemap/src/components/home/home.jsx'
+import Home from './components/home/home.jsx'
 import Grapes from './components/grapes/GrapeParent/grapes.jsx'
 import GrapeView from './components/grapes/GrapeParent/GrapeView.jsx'
 import { GrapeContext } from './components/grapes/GrapeParent/GrapeContext.jsx';

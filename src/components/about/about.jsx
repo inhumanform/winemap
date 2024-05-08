@@ -28,23 +28,26 @@ function About() {
             <div className="bg-gray-100 overflow-hidden pt-responsive-xl-128 relative pb-responsive-xl-389" data-component="ImpactNumberBlockHomepage">
                 <div className="px-responsive-xl-36 relative space-y-responsive-xl-80 z-10">
                     <div className="max-w-736 mx-auto space-y-responsive-xl-32 text-center"></div>
-                    <h2 className="text-heading-md">Holistic Wine Data for Professionals and Wine Lovers</h2>
-                    <p className="text-body-lg">
+                    <h2 className="text-heading-md text-5xl mt-4 text-center font-display">Holistic Wine Data for Professionals and Wine Lovers</h2>
+                    <p className="text-body-lg text-center font-display text-2xl">
                         All the wine data in one, easy to reach place. 
                     </p>
                 </div>
-                <div className="max-w-1168 mx-auto">
+                <div className="max-w-1168 mx-auto mt-12">
                     <ul className="flex flex-wrap -m-responsive-xl-32 justify-center">
                         <li className="w-full md:w-1/2 xl:w-1/3">
                             <div className="p-responsive-xl-32">
                                 <article>
                                     <div className="text-center dark:text-black">
-                                        <div className="text-heading-4xl">
-                                            " 269 "
+                                        <div className="text-6xl font-display">
+                                             269 
                                         </div>
-                                        <div className="text-utility-lg font-bold">American Viticultural Areas</div>
+                                        <div className="text-utility-lg font-bold font-display text-2xl">American Viticultural Areas</div>
                                     </div>
-                                    <div className="text-center mt-16 text-body-md dark:text-black lg:border-t lg:border-t-gray-100 lg:pt-24">
+                                    <div>
+                                        <img className="h-auto max-h-xs max-w-xl mx-auto" src="./public/aboutimages/aerial-vineyard.jpg" alt='Aerial Shot of Vineyard' />
+                                    </div>
+                                    <div className="text-center mt-1 text-body-md dark:text-black lg:border-t lg:border-t-gray-100">
                                         Starting with the US, we are mapping every recognized wine region in the world
                                     </div>
                                 </article>
@@ -54,13 +57,16 @@ function About() {
                             <div className="p-responsive-xl-32">
                                 <article>
                                     <div className="text-center dark:text-black">
-                                        <div className="text-heading-2xl">
-                                            ' 100 + '
+                                        <div className="text-6xl font-display">
+                                             100+ 
                                         </div>
-                                        <div className="text-utility-lg font-bold">Grape Varietals</div>
+                                        <div className="text-utility-lg font-bold font-display text-2xl">Grape Varietals</div>
                                     </div>
-                                    <div className="text-center mt-16 text-body-md dark:text-black lg:border-t lg:border-t-gray-100 lg:pt-24">
-                                        "Documentation about cultivars from around the world"
+                                    <div>
+                                        <img className="h-auto max-w-xl mx-auto" src="./public/aboutimages/lebanon-252.jpg" alt='Winehand' />
+                                    </div>
+                                    <div className="text-center mt-1 text-body-md dark:text-black lg:border-t lg:border-t-gray-100 ">
+                                        Documentation about cultivars from around the world
                                     </div>
                                 </article>
                             </div>
@@ -69,24 +75,28 @@ function About() {
                             <div className="p-responsive-xl-32">
                                 <article>
                                     <div className="text-center dark:text-black">
-                                        <div className="text-heading-2xl"> 11,691+ </div>
-                                        <div className="text-utility-lg font-bold">Vineyards</div>
+                                        <div className="text-6xl font-display"> 11,691+ </div>
+                                        <div className="text-utility-lg font-bold font-display text-2xl">Vineyards</div>
                                     </div>
-                                    <div className="text-center mt-16 text-body-md dark:text-black lg:border-t lg:border-t-gray-100 lg:pt-24">
+                                    <div>
+                                        <img className="h-auto max-h-xs mx-auto" src="./public/aboutimages/house-vineyard.jpg" alt='Winehand' />
+                                    </div>
+                                    <div className="text-center mt-11 text-body-md dark:text-black lg:border-t lg:border-t-gray-100 ">
                                         Constantly updating the growing world of wine.
                                     </div>
                                 </article>
                             </div>
+                            <article>
+                            <div className= ''>
+                                    <img className=''
+                                    src='./public/aboutimages/overlook.jpg'/>
+                                </div>
+                                </article>
                         </li>
                     </ul>
                 </div>
             </div>
-            {/* <div class="absolute bottom-0 left-0 w-full">
-                <picture>
-                    <img class src="https://images.unsplash.com/photo-1568930157403-9ad464e5f075?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Picture of rolling hills of a vineyard" loading="lazy" style="aspect-ratio: 1600 / 756;"></img>
-                </picture>
-                <div class="absolute bg-gradient-gray-100-fade-down h-full inset-0 top-0 w-full -mx-px"></div>
-            </div> */}
+
         </div>
     );
 };
