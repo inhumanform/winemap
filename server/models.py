@@ -29,6 +29,14 @@ grapes_subregions = db.Table(
     db.Column('subregions_id', db.Integer, db.ForeignKey(
         'subregions.id'), primary_key=True)
 )
+parentregion_subregions = db.Table(
+    'parentregion_subregions',
+    metadata,
+    db.Column('parentregions_id', db.Integer, db. ForeignKey(
+        'parent_regions.id'), primary_key=True),
+    db.Column('subregions_id', db.Integer, db.ForeignKey(
+        'subregions.id'), primary_key=True)
+)
 
 class Grapes(db.Model, SerializerMixin):
     __tablename__ = 'grapes'
@@ -54,9 +62,12 @@ class ParentRegions(db.Model, SerializerMixin):
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String, nullable=False)
+    abbreviation = db.Column(db.String, nullable=False)
     country = db.Column(db.String, nullable=False)
-    subregions = db.relationship('SubRegions', back_populates='parent_regions', cascade='all')
-
+    # subregions = db.relationship('SubRegions', back_populates='parent_regions', cascade='all')
+    subregions = db.Relationship(
+        'SubRegions', secondary=parentregion_subregions, back_populates='parent_regions'
+    )
     serialize_rules = ('-subregions.parent_regions', )
    
     
@@ -72,10 +83,13 @@ class SubRegions(db.Model, SerializerMixin):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String, nullable=False, unique=True)
     # grapes_id = db.Column(db.Integer)
-    parent_region_id = db.Column(db.Integer, db.ForeignKey('parent_regions.id'))
+    # parent_region_id = db.Column(db.Integer, db.ForeignKey('parent_regions.id'))
     climate = db.Column(db.String)
 
-    parent_regions = db.relationship('ParentRegions', back_populates='subregions')
+    # parent_regions = db.relationship('ParentRegions', back_populates='subregions')
+    parent_regions = db.Relationship(
+        'ParentRegions', secondary=parentregion_subregions, back_populates='subregions'
+    )
     
     grapes = db.relationship(
         'Grapes', secondary=grapes_subregions, back_populates='subregions'

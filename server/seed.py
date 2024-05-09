@@ -1,20 +1,22 @@
-from models import db, Grapes, ParentRegions, SubRegions, User, grapes_subregions
+from models import db, Grapes, ParentRegions, SubRegions, User, grapes_subregions, parentregion_subregions
 from app import app
 
 if __name__ == '__main__':
     with app.app_context():
         print("Building Database...")
 
-        db.create_all()
+   
 
         # Clear existing data
+        db.execute('DROP DATABASE IF EXISTS' + db)
         db.session.query(grapes_subregions).delete()
+        db.session.query(parentregion_subregions).delete()
         db.session.query(Grapes).delete()
         db.session.query(ParentRegions).delete()
         db.session.query(SubRegions).delete()
         db.session.query(User).delete()
 
-
+        db.create_all()
         g1 = Grapes(name="Cabernet Sauvignon", color='Red', image='../public/cabernetsauvignon.jpg')
         g2 = Grapes(name="Chardonnay", color='White', image='../public/chardonnay.jpeg')
         g3 = Grapes(name="Riesling", color='White', image='../public/Riesling.jpg')
@@ -75,61 +77,60 @@ if __name__ == '__main__':
         g58 = Grapes(name='Tsitska', color='White', image='../public/tsitska.jpg')
         g59 = Grapes(name='Krakhuna', color='White', image='../public/krakhuna.jpg')
         g60 = Grapes(name='Chinuri', color='White', image='../public/chinuri.jpg')
-        g61 = Grapes(name='Chinuri', color='White', image='../public/chinuri.jpg')
 
 
 
 
-        pr1 = ParentRegions(name="California", country='USA')
-        pr2 = ParentRegions(name="Oregon", country='USA')  
-        pr3 = ParentRegions(name="New York", country='USA')  
-        pr4 = ParentRegions(name="Virginia", country='USA')
-        pr5 = ParentRegions(name="Washington", country='USA')
-        pr6 = ParentRegions(name="Colorado", country='USA')
-        pr7 = ParentRegions(name="Connecticut", country='USA')
-        pr8 = ParentRegions(name="Delaware", country='USA')
-        pr9 = ParentRegions(name="Florida", country='USA')
-        pr10 = ParentRegions(name="Georgia", country='USA')
-        pr11 = ParentRegions(name="Hawaii", country='USA')
-        pr12 = ParentRegions(name="Idaho", country='USA')
-        pr13 = ParentRegions(name="Illinois", country='USA')
-        pr14 = ParentRegions(name="Indiana", country='USA')
-        pr15 = ParentRegions(name="Iowa", country='USA')
-        pr16 = ParentRegions(name="Kansas", country='USA')
-        pr17 = ParentRegions(name="Kentucky", country='USA')
-        pr18 = ParentRegions(name="Louisiana", country='USA')
-        pr19 = ParentRegions(name="Maine", country='USA')
-        pr20 = ParentRegions(name="Maryland", country='USA')
-        pr21 = ParentRegions(name="Massachusetts", country='USA')
-        pr22 = ParentRegions(name="Michigan", country='USA')
-        pr23 = ParentRegions(name="Minnesota", country='USA')
-        pr24 = ParentRegions(name="Mississippi", country='USA')
-        pr25 = ParentRegions(name="Missouri", country='USA')
-        pr26 = ParentRegions(name="Montana", country='USA')
-        pr27 = ParentRegions(name="Nebraska", country='USA')
-        pr28 = ParentRegions(name="Nevada", country='USA')
-        pr29 = ParentRegions(name="New Hampshire", country='USA')
-        pr30 = ParentRegions(name="New Jersey", country='USA')
-        pr31 = ParentRegions(name="New Mexico", country='USA')
-        pr32 = ParentRegions(name="New York", country='USA')
-        pr33 = ParentRegions(name="North Carolina", country='USA')
-        pr34 = ParentRegions(name="North Dakota", country='USA')
-        pr35 = ParentRegions(name="Ohio", country='USA')
-        pr36 = ParentRegions(name="Oklahoma", country='USA')
-        pr37 = ParentRegions(name="Oregon", country='USA')
-        pr38 = ParentRegions(name="Pennsylvania", country='USA')
-        pr39 = ParentRegions(name="Rhode Island", country='USA')
-        pr40 = ParentRegions(name="South Carolina", country='USA')
-        pr41 = ParentRegions(name="South Dakota", country='USA')
-        pr42 = ParentRegions(name="Tennessee", country='USA')
-        pr43 = ParentRegions(name="Texas", country='USA')
-        pr44 = ParentRegions(name="Utah", country='USA')
-        pr45 = ParentRegions(name="Vermont", country='USA')
-        pr46 = ParentRegions(name="Virginia", country='USA')
-        pr47 = ParentRegions(name="Washington", country='USA')
-        pr48 = ParentRegions(name="West Virginia", country='USA')
-        pr49 = ParentRegions(name="Wisconsin", country='USA')
-        pr50 = ParentRegions(name="Wyoming", country='USA')
+        pr1 = ParentRegions(name = "Alabama", abbreviation = "AL", country = "USA")
+        pr2 = ParentRegions(name = "Alaska", abbreviation = "AK", country = "USA" )
+        pr3 = ParentRegions(name = "Arizona", abbreviation = "AZ", country = "USA" )
+        pr4 = ParentRegions(name = "Arkansas", abbreviation = "AR", country = "USA")
+        pr5 = ParentRegions(name = "California", abbreviation = "CA", country = "USA")
+        pr6 = ParentRegions(name = "Colorado", abbreviation = "CO", country = "USA")
+        pr7 = ParentRegions(name = "Connecticut", abbreviation = "CT", country = "USA")
+        pr8 = ParentRegions(name = "Delaware", abbreviation = "DE", country = "USA")
+        pr9 = ParentRegions(name = "Florida", abbreviation = "FL", country = "USA")
+        pr10 = ParentRegions(name = "Georgia", abbreviation = "GA", country = "USA")
+        pr11 = ParentRegions(name = "Hawaii", abbreviation = "HI", country = "USA")
+        pr12 = ParentRegions(name = "Idaho", abbreviation = "ID", country = "USA")
+        pr13 = ParentRegions(name = "Illinois", abbreviation = "IL", country = "USA")
+        pr14 = ParentRegions(name = "Indiana", abbreviation = "IN", country = "USA")
+        pr15 = ParentRegions(name = "Iowa", abbreviation = "IA", country = "USA")
+        pr16 = ParentRegions(name = "Kansas", abbreviation = "KS", country = "USA")
+        pr17 = ParentRegions(name = "Kentucky", abbreviation = "KY", country = "USA")
+        pr18 = ParentRegions(name = "Louisiana", abbreviation = "LA", country = "USA")
+        pr19 = ParentRegions(name = "Maine", abbreviation = "ME", country = "USA")
+        pr20 = ParentRegions(name = "Maryland", abbreviation = "MD", country = "USA")
+        pr21 = ParentRegions(name = "Massachusetts", abbreviation = "MA", country = "USA")
+        pr22 = ParentRegions(name = "Michigan", abbreviation = "MI", country = "USA")
+        pr23 = ParentRegions(name = "Minnesota", abbreviation = "MN", country = "USA")
+        pr24 = ParentRegions(name = "Mississippi", abbreviation = "MS", country = "USA")
+        pr25 = ParentRegions(name = "Missouri", abbreviation = "MO", country = "USA")
+        pr26 = ParentRegions(name = "Montana", abbreviation = "MT", country = "USA")
+        pr27 = ParentRegions(name = "Nebraska", abbreviation = "NE", country = "USA")
+        pr28 = ParentRegions(name = "Nevada", abbreviation = "NV", country = "USA")
+        pr29 = ParentRegions(name = "New Hampshire", abbreviation = "NH", country = "USA")
+        pr30 = ParentRegions(name = "New Jersey", abbreviation = "NJ", country = "USA")
+        pr31 = ParentRegions(name = "New Mexico", abbreviation = "NM", country = "USA")
+        pr32 = ParentRegions(name = "New York", abbreviation = "NY", country = "USA")
+        pr33 = ParentRegions(name = "North Carolina", abbreviation = "NC", country = "USA")
+        pr34 = ParentRegions(name = "North Dakota", abbreviation = "ND", country = "USA")
+        pr35 = ParentRegions(name = "Ohio", abbreviation = "OH", country = "USA")
+        pr36 = ParentRegions(name = "Oklahoma", abbreviation = "OK", country = "USA")
+        pr37 = ParentRegions(name = "Oregon", abbreviation = "OR", country = "USA")
+        pr38 = ParentRegions(name = "Pennsylvania", abbreviation = "PA", country = "USA")
+        pr39 = ParentRegions(name = "Rhode Island", abbreviation = "RI", country = "USA")
+        pr40 = ParentRegions(name = "South Carolina", abbreviation = "SC", country = "USA")
+        pr41 = ParentRegions(name = "South Dakota", abbreviation = "SD", country = "USA")
+        pr42 = ParentRegions(name = "Tennessee", abbreviation = "TN", country = "USA")
+        pr43 = ParentRegions(name = "Texas", abbreviation = "TX", country = "USA")
+        pr44 = ParentRegions(name = "Utah", abbreviation = "UT", country = "USA")
+        pr45 = ParentRegions(name = "Vermont", abbreviation = "VT", country = "USA")
+        pr46 = ParentRegions(name = "Virginia", abbreviation = "VA", country = "USA")
+        pr47 = ParentRegions(name = "Washington", abbreviation = "WA", country = "USA")
+        pr48 = ParentRegions(name = "West Virginia", abbreviation = "WV", country = "USA")
+        pr49 = ParentRegions(name = "Wisconsin", abbreviation = "WI", country = "USA")
+        pr50 = ParentRegions(name = "Wyoming", abbreviation = "WY", country = "USA")
         
 
         sr1 = SubRegions(name="Napa Valley", climate="Mediterranean")
@@ -410,23 +411,13 @@ if __name__ == '__main__':
         g5.subregions.extend([sr1, sr6, sr5]) 
         g6.subregions.extend([sr2, sr7])
 
-        # Associate SubRegions with ParentRegions
-        sr1.parent_regions = pr1
-        sr2.parent_regions = pr3
-        sr3.parent_regions = pr2
-        sr4.parent_regions = pr1
-        sr5.parent_regions = pr4
-        sr6.parent_regions = pr1
-        sr7.parent_regions = pr5
-        sr8.parent_regions = pr6
-        sr9.parent_regions = pr7
-      
 
-        u1 = User(first_name='Drew', last_name='Hairston', username='dch528', password='771532Drew!',
-                  email_address='dch528@gmail.com', admin=True)
+        # u1 = User(first_name='Drew', last_name='Hairston', username='dch528', _password_hash='771532Drew!',
+        #           email_address='dch528@gmail.com', admin=True)
 
-        u2 = User(first_name='John', last_name='Doe', username='tester', password='test123!',
-                  email_address='test@test.com', admin=False)
+        # u2 = User(first_name='John', last_name='Doe', username='tester', _password_hash='test123!',
+        #           email_address='test@test.com', admin=False)
 
-        db.session.add_all([g1, g2, g3, g4, g5, g6, pr1, pr2, pr3, pr4, pr5, sr1, sr2, sr3, sr4, sr5, sr6, sr7, u1, u2])
+        # db.session.add_all([g1, g2, g3, g4, g5, g6, pr1, pr2, pr3, pr4, pr5, sr1, sr2, sr3, sr4, sr5, sr6, sr7, u1, u2])
+        db.session.add_all([g1, g2, g3, g4, g5, g6, g7, g8, g9, g10, g11, g12, g13, g14, g15, g16, g17, g18, g19, g20, g21, g22, g23, g24, g25, g26, g27, g28, g29, g30, g31, g32, g33, g34, g35, g36, g37, g38, g39, g40, g41, g42, g43, g44, g45, g46, g47, g48, g49, g50, g51, g52, g53, g54, g55, g56, g57, g58, g59, g60, pr1, pr2, pr3, pr4, pr5, pr6, pr7, pr8, pr9, pr10, pr11, pr12, pr13, pr14, pr15, pr16, pr17, pr18, pr19, pr20, pr21, pr22, pr23, pr24, pr25, pr26, pr27, pr28, pr29, pr30, pr31, pr32, pr33, pr34, pr35, pr36, pr37, pr38, pr39, pr40, pr41, pr42, pr43, pr44, pr45, pr46, pr47, pr48, pr49, pr50, sr1, sr2, sr3, sr4, sr5, sr6, sr7, sr8, sr9, sr10, sr11, sr12, sr13, sr14, sr15, sr16, sr17, sr18, sr19, sr20, sr21, sr22, sr23, sr24, sr25, sr26, sr27, sr28, sr29, sr30, sr31, sr32, sr33, sr34, sr35, sr36, sr37, sr38, sr39, sr40, sr41, sr42, sr43, sr44, sr45, sr46, sr47, sr48, sr49, sr50, sr51, sr52, sr53, sr54, sr55, sr56, sr57, sr58, sr59, sr60, sr61, sr62, sr63, sr64, sr65, sr66, sr67, sr68, sr69, sr70, sr71, sr72, sr73, sr74, sr75, sr76, sr77, sr78, sr79, sr80, sr81, sr82, sr83, sr84, sr85, sr86, sr87, sr88, sr89, sr90, sr91, sr92, sr93, sr94, sr95, sr96, sr97, sr98, sr99, sr100, sr101, sr102, sr103, sr104, sr105, sr106, sr107, sr108, sr109, sr110, sr111, sr112, sr113, sr114, sr115, sr116, sr117, sr118, sr119, sr120, sr121, sr122, sr123, sr124, sr125, sr126, sr127, sr128, sr129, sr130, sr131, sr132, sr133, sr134, sr135, sr136, sr137, sr138, sr139, sr140, sr141, sr142, sr143, sr144, sr145, sr146, sr147, sr148, sr149, sr150, sr151, sr152, sr153, sr154, sr155, sr156, sr157, sr158, sr159, sr160, sr161, sr162, sr163, sr164, sr165, sr166, sr167, sr168, sr169, sr170, sr171, sr172, sr173, sr174, sr175, sr176, sr177, sr178, sr179, sr180, sr181, sr182, sr183, sr184, sr185, sr186, sr187, sr188, sr189, sr190, sr191, sr192, sr193, sr194, sr195, sr196, sr197, sr198, sr199, sr200, sr202, sr203, sr204, sr205, sr206, sr207, sr208, sr209, sr210, sr211, sr212, sr213, sr214, sr215, sr216, sr217, sr218, sr219, sr220, sr221, sr222, sr223, sr224, sr225, sr226, sr227, sr228, sr229, sr230, sr231, sr232, sr233, sr234, sr235, sr236, sr237, sr238, sr239, sr240, sr241, sr242, sr243, sr244, sr245, sr246, sr247, sr248, sr249, sr250, sr251, sr252, sr253, sr254, sr255, sr256, sr257, sr258, sr259, sr260, sr261, sr262, sr263, sr264, sr265, sr266, sr267, sr268, sr269])
         db.session.commit()
