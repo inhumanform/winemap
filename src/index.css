@@ -29,3 +29,8 @@
 
   }
   
+  .popup {
+    /* background-color:blue; */
+    z-index: 100;
+  }
+

@@ -102,7 +102,8 @@ class NewGrapes(Resource):
 class AllSubregions(Resource):
     def get(self):
         subregions = SubRegions.query.all()
-        response_body = [subregions.to_dict]
+        # response_body = [subregions.to_dict]
+        response_body = [subregions.to_dict(only=('id', 'name')) for subregions in subregions]
         return make_response(response_body, 200)
     
 api.add_resource(AllSubregions, '/subregions')

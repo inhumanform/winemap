@@ -81,7 +81,7 @@ class SubRegions(db.Model, SerializerMixin):
     __tablename__ = 'subregions'
 
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String, nullable=False, unique=True)
+    name = db.Column(db.String, nullable=False)
     # grapes_id = db.Column(db.Integer)
     # parent_region_id = db.Column(db.Integer, db.ForeignKey('parent_regions.id'))
     climate = db.Column(db.String)

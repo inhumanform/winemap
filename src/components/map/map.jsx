@@ -1,18 +1,31 @@
 import * as React from 'react';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef, useContext } from 'react';
 import Map, { Source, Layer, Marker, Popup, useMap } from 'react-map-gl';
 import * as avaData from "./american-viticultural-areas.json"
 import './map.css';
 import 'mapbox-gl/dist/mapbox-gl.css';
+import mapboxgl from 'mapbox-gl';
+// import { SubregionContext } from '../regions/SubregionContext';
 
 function MapContainer() {
   const multiPolygons = avaData.features.filter((ft) => ft.geometry.type == 'MultiPolygon')
   const polygons = avaData.features.filter((ft) => ft.geometry.type == 'Polygon')
-  const bb_regions = avaData.features.filter((ft) => ft.properties.Contains_ == 'None')
+  // const bb_regions = avaData.features.filter((ft) => ft.properties.Contains_ == 'None')
+  // console.log('bbbbbb', bb_regions)
+  console.log('avaData', avaData.features)
 
   const [selectedAVA, setSelectedAVA] = useState([1]);
-  // useEffect(() => () => console.log('unmounting'), [])
+  const [showPopUp, setshowPopUp] = useState(false);
+  // const { filteredRegions, setSelectedRegionId } = useContext(SubregionContext);
+  // const handleRegionClick = (regionId) => {
+  //   setSelectedRegionId(regionId);
+  // };
 
+
+  // useEffect(() => {
+  //   popupRef.current?.trackpointer();
+
+  // }, [popupRef.current])
   // useEffect(() => {
   //   const listener = e => {
   //     if (e.key === "Escape") {
@@ -26,20 +39,6 @@ function MapContainer() {
   //   };
   // }, []);
 
-  // console.log('bb_regions', bb_regions)
-  // console.log('polygon', polygons[0].geometry.coordinates[0][0][0])
-  // console.log('multiPolygons', multiPolygons[0], multiPolygons[1], multiPolygons[2])
-
-  // console.log('multipolygon_names', multiPolygons.map((mp)=>mp.properties.Name))
-  // console.log('polygon_names', polygons.map((p)=>p.properties.Name))
-
-  // console.log('testy', avaData.features[0])
-  // console.log('first_multiPolygon', multiPolygons[0], multiPolygons[12], multiPolygons[20])
-  // console.log('first_polygon', polygons[0], polygons[1], polygons[87])
-
-
-  function getAvaProperties(ava) {
-  }
   return (
     <div>
       <Map
@@ -53,8 +52,7 @@ function MapContainer() {
         mapStyle="mapbox://styles/lcatoe/clvh0cis305qp01pk7875ar8m"
       >
 
-        {bb_regions.map(ava => (
-          // if ava.
+        {avaData.features.map(ava => (
           <Marker
 
             key={ava.properties.Name}
@@ -65,65 +63,38 @@ function MapContainer() {
 
             <button className='marker-btn'
               id={ava.properties.Name}
-              onClick={event => {
-                event.preventDefault();
-                // console.log('ava', ava)
+              onClick={(e) => {
+                e.preventDefault();
                 setSelectedAVA(ava);
+                setshowPopUp(true)
+                // console.log(e.target)
               }}
             >
-              <img src='/assets/orange-pin.svg' alt='AVA Icon' />
+              {ava.properties.Contains_ == 'None' ? <img src='/assets/big-peen.svg' alt='AVA Icon' /> : <img src='/assets/widdle-peen.svg' alt='AVA Icon' />}
+
             </button>
           </Marker>
         ))}
-
-
-        {/* {console.log('avaaaaaa', Object.entries(selectedAVA).slice(1,3))} */}
-        {/* {Object.entries(selectedAVA).slice(1,3).map((prop) => (
-    // console.log('keyname', keyName, 'i', i)
-    console.log('properties', i, selectedAVA[keyName])
-))} */}
-        <div>
-          {Object.entries(selectedAVA).slice(1, 3).map((prop) => (
-            //  {console.log('avaaaaaa', ava[1])}
-            <Popup
-              // latitude={selectedAVA.geometry.type == 'MultiPolygon' ? selectedAVA.geometry.coordinates[0][0][0][1] : selectedAVA.geometry.coordinates[0][0][1]  }
-              // longitude={selectedAVA.geometry.type == 'MultiPolygon' ?  selectedAVA.geometry.coordinates[0][0][0][0] :  selectedAVA.geometry.coordinates[0][0][0]}
-              longitude={-100} latitude={40}
-              anchor="bottom"
-            // onClose={() => {
-            //   setSelectedAVA(null);
-            // }}
-            >
-              {console.log('ptop', prop[0] == 'properties' ? prop[1].Name  : null)}
-              <div className='popup'>
-                <h1>Hello</h1>
-                {prop[0] == 'properties' ? <h2> prop[1].Name </h2> : null}
-                {/* <h2>{selectedAVA[keyName]}</h2> */}
-                {/* <p>{selectedAVA.properties.States}</p>  */}
-              </div>
-            </Popup>
-
-
-          )
-
-)}
-        </div>
-        {/* <Popup
-          latitude={selectedAVA.geometry.type == 'MultiPolygon' ? selectedAVA.geometry.coordinates[0][0][0][1] : selectedAVA.geometry.coordinates[0][0][1]  }
-          longitude={selectedAVA.geometry.type == 'MultiPolygon' ?  selectedAVA.geometry.coordinates[0][0][0][0] :  selectedAVA.geometry.coordinates[0][0][0]}
-          longitude={-100} latitude={40}
-          anchor="bottom"
-        onClose={() => {
-          setSelectedAVA(null);
-        }}
-        >
-          <div className='popup'>
-            <h1>Hello</h1>
-            <h2>{selectedAVA.properties.Name}</h2>
+        {console.log('selectedAVA', selectedAVA)}
+        {showPopUp && (
+          <Popup
+            latitude={selectedAVA.geometry.type == 'MultiPolygon' ? selectedAVA.geometry.coordinates[0][0][0][1] : selectedAVA.geometry.coordinates[0][0][1]}
+            longitude={selectedAVA.geometry.type == 'MultiPolygon' ? selectedAVA.geometry.coordinates[0][0][0][0] : selectedAVA.geometry.coordinates[0][0][0]}
+            // longitude={-100} latitude={40}
+            anchor="bottom"
+            closeOnClick={false}
+            onClose={() => {
+              // setSelectedAVA(null);
+              setshowPopUp(false)
+            }}
+          >
+            <div className='popup font-display'>
+            <span id={selectedAVA.id} onClick={() => handleRegionClick(selectedAVA.id)}>
+              {selectedAVA.properties.Name + ' AVA'}</span>
               <p>{selectedAVA.properties.States}</p>
-          </div>
-        </Popup>
-        ) : null} */}
+            </div>
+          </Popup>
+        )}
       </Map>
     </div>
   );
