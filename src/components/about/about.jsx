@@ -15,39 +15,41 @@ function About() {
                 <div className='md:left-[10%] max-w-[1100px] m-auto absolute p-4'>
 
                     <h1 className='font-bold text-5xl md:text-7xl drop-shadow-2xl font-display'>
-                        Wine Info On Demand
+                        World Wine Web
                     </h1>
                     <p className='max-w-[600px] drop-shadow-2xl py-2 text-xl font-display '>
                         The wine education tool developed by a somm, for somms
                     </p>
                     <a href="/map">
-                    <button className='bg-white text-black '>Start Exploring</button>
+                        <button class="bg-emerald-500 hover:bg-emerald-700 text-white font-bold py-2 px-4 rounded-full">
+                            Start Exploring
+                        </button>
                     </a>
                 </div>
             </div>
             <div className="bg-gray-100 overflow-hidden pt-responsive-xl-128 relative pb-responsive-xl-389" data-component="ImpactNumberBlockHomepage">
                 <div className="px-responsive-xl-36 relative space-y-responsive-xl-80 z-10">
                     <div className="max-w-736 mx-auto space-y-responsive-xl-32 text-center"></div>
-                    <h2 className="text-heading-md text-5xl mt-4 text-center font-display">Holistic Wine Data for Professionals and Wine Lovers</h2>
+                    <h2 className="text-heading-md text-5xl mt-4 text-center font-display">Holistic Data for Professionals and Wine Lovers</h2>
                     <p className="text-body-lg text-center font-display text-2xl">
-                        All the wine data in one, easy to reach place. 
+                        All the wine data in one easy to reach place.
                     </p>
                 </div>
                 <div className="max-w-1168 mx-auto mt-12">
-                    <ul className="flex flex-wrap -m-responsive-xl-32 justify-center">
+                    <ul className="flex flex-wrap -m-0  justify-center">
                         <li className="w-full md:w-1/2 xl:w-1/3">
                             <div className="p-responsive-xl-32">
                                 <article>
                                     <div className="text-center dark:text-black">
                                         <div className="text-6xl font-display">
-                                             269 
+                                            269
                                         </div>
                                         <div className="text-utility-lg font-bold font-display text-2xl">American Viticultural Areas</div>
                                     </div>
-                                    <div>
-                                        <img className="h-auto max-h-xs max-w-xl mx-auto" src="./public/aboutimages/aerial-vineyard.jpg" alt='Aerial Shot of Vineyard' />
+                                    <div className="flex justify-center items-center">
+                                        <img className="h-fit w-full" src="./public/aboutimages/longvineyard.jpg" alt='Aerial Shot of Vineyard' />
                                     </div>
-                                    <div className="text-center mt-1 text-body-md dark:text-black lg:border-t lg:border-t-gray-100">
+                                    <div className="text-center font-display mt-1 text-body-md dark:text-black lg:border-t lg:border-t-gray-100 text-xl">
                                         Starting with the US, we are mapping every recognized wine region in the world
                                     </div>
                                 </article>
@@ -58,14 +60,14 @@ function About() {
                                 <article>
                                     <div className="text-center dark:text-black">
                                         <div className="text-6xl font-display">
-                                             100+ 
+                                            100+
                                         </div>
                                         <div className="text-utility-lg font-bold font-display text-2xl">Grape Varietals</div>
                                     </div>
-                                    <div>
-                                        <img className="h-auto max-w-xl mx-auto" src="./public/aboutimages/lebanon-252.jpg" alt='Winehand' />
+                                    <div className="flex justify-center items-center">
+                                        <img className="h-500 w-full" src="./public/aboutimages/lebanon-252.jpg" alt='Winehand' />
                                     </div>
-                                    <div className="text-center mt-1 text-body-md dark:text-black lg:border-t lg:border-t-gray-100 ">
+                                    <div className="text-center mt-1 text-body-md dark:text-black lg:border-t lg:border-t-gray-100 font-display text-xl ">
                                         Documentation about cultivars from around the world
                                     </div>
                                 </article>
@@ -78,20 +80,20 @@ function About() {
                                         <div className="text-6xl font-display"> 11,691+ </div>
                                         <div className="text-utility-lg font-bold font-display text-2xl">Vineyards</div>
                                     </div>
-                                    <div>
-                                        <img className="h-auto max-h-xs mx-auto" src="./public/aboutimages/house-vineyard.jpg" alt='Winehand' />
+                                    <div className="flex justify-center items-center">
+                                        <img className="h-500 w-full" src="./public/aboutimages/house-vineyard.jpg" alt='Winehand' />
                                     </div>
-                                    <div className="text-center mt-11 text-body-md dark:text-black lg:border-t lg:border-t-gray-100 ">
+                                    <div className="text-center mt-1 text-body-md dark:text-black lg:border-t lg:border-t-gray-100 font-display text-xl">
                                         Constantly updating the growing world of wine.
                                     </div>
                                 </article>
                             </div>
-                            <article>
+                            {/* <article>
                             <div className= ''>
                                     <img className=''
                                     src='./public/aboutimages/overlook.jpg'/>
                                 </div>
-                                </article>
+                                </article> */}
                         </li>
                     </ul>
                 </div>

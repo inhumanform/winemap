@@ -95,7 +95,7 @@ const SubregionProvider = ({ children }) => {
     fetchSubregions();
   }, []);
 
-  const value = {
+  const subRegionvalue = {
     subregions,
     filteredSubregions,
     searchQuery,
@@ -109,7 +109,7 @@ const SubregionProvider = ({ children }) => {
   };
 
   return (
-    <SubregionContext.Provider value={value}>{children}</SubregionContext.Provider>
+    <SubregionContext.Provider value={subRegionvalue}>{children}</SubregionContext.Provider>
   );
 };
 

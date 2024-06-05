@@ -10,21 +10,18 @@ import { Link } from "react-router-dom";
 const Navbar = () => {
     return (
         <div className=" nav-bar-main fixed top-0 left-0 h-screen w-16 m-0 flex flex-col bg-gray-900 text-white shadow-lg z-10">
-            <Link to="/">
+            <Link to="/about">
                 <NavbarIcon className='icon-link' text= "Home" icon={<FaHouseUser size="28" />} />
             </Link>
             <Divider />
             <Link to='/map'>
-                <NavbarIcon className='icon-link' text= "AVA Map" icon={<FaMap size="28" />} />
+                <NavbarIcon className='icon-link' text= "World Wine Map" icon={<FaGlobeAmericas size="28" />} />
             </Link>
             <Link to='/grapes'>
-                <NavbarIcon className='icon-link' text= "Grape Varietal Info" icon={<SvgGrapes size="28" />} />
+                <NavbarIcon className='icon-link' text= "Grapes" icon={<SvgGrapes size="28" />} />
             </Link>
-            <Link to='/regions'>
-                <NavbarIcon className='icon-link' text= "Wine Regions" icon={<FaGlobeAmericas size="28" />} />
-            </Link>
-            <Link to='/about'>
-                <NavbarIcon className='icon-link' text= "About" icon={<SvgHand size="28" />} />
+            <Link to='/subregions'>
+                <NavbarIcon className='icon-link' text= "Wine Regions" icon={<FaMap size="28" />} />
             </Link>
             <Divider />
             <Link to='/login'>

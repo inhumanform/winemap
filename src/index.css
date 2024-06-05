@@ -34,3 +34,7 @@
     z-index: 100;
   }
 
+  .mapboxgl-canvas {
+    width: 2050;
+    height: 1270;
+  }

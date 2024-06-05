@@ -112,7 +112,7 @@ api.add_resource(AllSubregions, '/subregions')
 class SubregionsByID(Resource):
 
     def get(self, id):
-        subregions = SubRegions.query.filter(SubRegions.id ==id).first()
+        subregions = SubRegions.query.filter(SubRegions.id == id).first()
 
         if (subregions):
             response_body = subregions.to_dict()
@@ -147,7 +147,7 @@ class SubregionsByID(Resource):
 
             return make_response(subregions.to_dict(), 200)
         
-        api.add_resource(SubregionsByID, 'subregions/<int:id>')
+api.add_resource(SubregionsByID, '/subregions/<int:id>')
 
 
 class Login(Resource):
