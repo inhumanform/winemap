@@ -5,28 +5,44 @@ import './regionview.css'
 
 
 function SubregionView() {
-  const  {subregionId} = useParams({});
+  const  {subregionId} = useParams('0');
   const [selectedSubregion, setSelectedSubregion] = useState(0);
+  const fetchSelectedSubregion = async () => {
+    try {
+      const response = await fetch(`http://127.0.0.1:5555/subregions/${subregionId}`);
+      const data = await response.json();
+      console.log('Fetched subregion:', data)
+      setSelectedSubregion(data);
+    } catch (error) {
+      console.error('Error fetching selected subregion:', error);
+    }
+};
 
 
   useEffect(() => {;
-    const fetchSelectedSubregion = async () => {
-      if (subregionId) {
-        try {
-          const response = await fetch(`http://127.0.0.1:5555/subregions/${subregionId}`);
-          const data = await response.json();
-          console.log('Fetched subregion:', data)
-          setSelectedSubregion(data);
-        } catch (error) {
-          console.error('Error fetching selected subregion:', error);
-        }
-      }
-    };
 
-    fetchSelectedSubregion();
+    if (subregionId) { 
+      fetchSelectedSubregion();
+    }
   }, [subregionId]);
 
-  console.log('Selected Subregion State:', selectedSubregion);
+  //   const fetchSelectedSubregion = async () => {
+  //     if (subregionId) {
+  //       try {
+  //         const response = await fetch(`http://127.0.0.1:5555/subregions/${subregionId}`);
+  //         const data = await response.json();
+  //         console.log('Fetched subregion:', data)
+  //         setSelectedSubregion(data);
+  //       } catch (error) {
+  //         console.error('Error fetching selected subregion:', error);
+  //       }
+  //     }
+  //   };
+
+  //   fetchSelectedSubregion();
+  // }, [subregionId]);
+
+  // console.log('Selected Subregion State:', selectedSubregion);
 
 
 

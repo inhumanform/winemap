@@ -19,7 +19,7 @@ function App() {
 
   const value = useContext(GrapeContext)
   const [user, setUser] = useState([null])
-  const subRegionValue = useContext(SubregionContext)
+  const subRegionvalue = useContext(SubregionContext)
 
  
   useEffect(() => {
@@ -42,7 +42,7 @@ function App() {
         <Route className='map-container' path='/map' element={<MapContainer />} />
         <Route path="/grapes/:grapeId" element={<GrapeView />} />  
         <Route path="/grapes" element={<Grapes />} /> 
-        <Route path='/subregions/:subregionsId' element={<SubregionView />} />
+        <Route path='/subregions/:subregionId' element={<SubregionView />} />
         <Route path='/subregions' element={<Subregion />} />
         <Route path='login' element={<LoginForm />} />
         <Route path='/signup' element={<SignupForm />} />
