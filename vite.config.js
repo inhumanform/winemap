@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import svgr from 'vite-plugin-svgr' 
+import dotenv from 'dotenv'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -18,6 +19,9 @@ export default defineConfig({
     svgrOptions: {
       // svgr options
     },
+    define:{
+      'process.env.VITE_REACT_APP_ACCESS_TOKEN' :JSON.stringify(process.env.VITE_REACT_APP_ACCESS_TOKEN)
+    }
   }),
 ], 
 })

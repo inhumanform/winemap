@@ -4,13 +4,13 @@ import '../../index.css';
 function About() {
     return (
 
-        <div className='w-full h-screen'>
+        <div className='w-full h-full'>
             <img
-                className='top-0 left-100 w-full h-screen object-cover'
+                className='top-0 w-screen h-screen object-cover '
                 src='https://images.unsplash.com/photo-1568930157403-9ad464e5f075?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
                 alt='Wine in your hand'
             />
-            <div className='bg-black/30 absolute top-0 left-0 w-full h-screen' />
+            <div className='subpixel-antialiased bg-black/30 absolute top-0 left-0 w-full h-screen' />
             <div className='absolute top-0 w-full h-full flex flex-col justify-center text-white'>
                 <div className='md:left-[10%] max-w-[1100px] m-auto absolute p-4'>
 
@@ -34,6 +34,17 @@ function About() {
                     <p className="text-body-lg text-center font-display text-2xl">
                         All the wine data in one easy to reach place.
                     </p>
+                    <ul>
+                        <li className="text-center text-body-md font-display text-2xl">
+                            <span className="font-bold">Interactive Wine Maps:</span> A full view of the Earth, and all its wine growing areas
+                        </li>
+                        <li className="text-center text-body-md font-display text-2xl">
+                            <span className="font-bold">Grape Varietals:</span> Documentation about cultivars from around the world
+                        </li>
+                        <li className="text-center text-body-md font-display text-2xl">
+                            <span className="font-bold">Regional Data:</span> Constantly updating the growing world of wine.
+                        </li>
+                    </ul>
                 </div>
                 <div className="max-w-1168 mx-auto mt-12">
                     <ul className="flex flex-wrap -m-0  justify-center">

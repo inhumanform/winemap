@@ -30,8 +30,6 @@ function GrapeView() {
         <h1>{selectedGrape.name}</h1>
         <img className='grape-img size-1/5' src={selectedGrape.image} />
         <p>{selectedGrape.subregion}</p>
-        {/* {console.log('name', selectedGrape.name?.replaceAll(" ", "_"))}
-        {selectedGrape.name?.replaceAll(" ", "_")} */}
       <div className="wiki-window">
         <a href={`https://www.wikipedia.org/wiki/${selectedGrape.name?.replaceAll(" ", "_")}`} target="_blank" rel="noopener noreferrer">
           <iframe className='grape-wiki'src={`https://www.wikipedia.org/wiki/${selectedGrape.name?.replaceAll(" ", "_")}`} title="Wiki for {selectedGrape.name}"></iframe>

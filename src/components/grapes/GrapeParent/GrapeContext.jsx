@@ -6,9 +6,7 @@ const GrapeProvider = ({ children }) => {
   const [grapes, setGrapes] = useState([]);
   const [filteredGrapes, setFilteredGrapes] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
-  const [selectedGrapeId, setSelectedGrapeId] = useState(0);
-//   console.log("Initial Selected Grape ID:", selectedGrapeId);
-//   console.log("setSelectedGrapeId function:", setSelectedGrapeId); 
+  const [selectedGrapeId, setSelectedGrapeId] = useState(0); 
 
 
   const fetchGrapes = async () => {

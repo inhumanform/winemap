@@ -7,33 +7,30 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 import mapboxgl from 'mapbox-gl';
 
 
+
 function MapContainer() {
   const multiPolygons = avaData.features.filter((ft) => ft.geometry.type == 'MultiPolygon')
   const polygons = avaData.features.filter((ft) => ft.geometry.type == 'Polygon')
-  console.log('avaData', avaData.features)
+
 
   const [selectedAVA, setSelectedAVA] = useState([1]);
   const [showPopUp, setshowPopUp] = useState(false);
 
-  // const search = new MapboxSearchBox();
-  // search.accessToken = "pk.eyJ1IjoibGNhdG9lIiwiYSI6ImNsMjU3end6dzFuOHUzYmpydzVvd2xyajcifQ.1KnX7kxeyNOmBvMdATH3vQ";
-  // map.addControl(search);
 
   return (
-    <div className='size-max'>
+    <div>
       <Map
-        mapboxAccessToken="pk.eyJ1IjoibGNhdG9lIiwiYSI6ImNsMjU3end6dzFuOHUzYmpydzVvd2xyajcifQ.1KnX7kxeyNOmBvMdATH3vQ"
+        // Put this access token into an environment variable
+        mapboxAccessToken= {import.meta.env.VITE_REACT_APP_ACCESS_TOKEN}
         initialViewState={{
           longitude: -98.48,
           latitude: 39.0,
-          zoom: 4
+          zoom: 2.75
         }}
-        style={{ width: 2500, height: 1270, left: 60, padding: '6px, 12px', position: 'absolute' }}
+        style={{ width: "97vw", height: "100vh", left: 5, position: 'relative' }}
         mapStyle="mapbox://styles/lcatoe/clvh0cis305qp01pk7875ar8m"
       >
- {/* <form>
-      <SearchBox accessToken={"pk.eyJ1IjoibGNhdG9lIiwiYSI6ImNsMjU3end6dzFuOHUzYmpydzVvd2xyajcifQ.1KnX7kxeyNOmBvMdATH3vQ"} />
-    </form> */}
+
 
 
         {avaData.features.map(ava => (
@@ -51,7 +48,6 @@ function MapContainer() {
                 e.preventDefault();
                 setSelectedAVA(ava);
                 setshowPopUp(true)
-                // console.log(e.target)
               }}
             >
               {ava.properties.Contains_ == 'None' ? <img src='/assets/big-peen.svg' alt='AVA Icon' /> : <img src='/assets/widdle-peen.svg' alt='AVA Icon' />}
@@ -67,13 +63,12 @@ function MapContainer() {
             anchor="bottom"
             closeOnClick={false}
             onClose={() => {
-              // setSelectedAVA(null);
               setshowPopUp(false)
             }}
           >
             <div className='popup font-display'>
-            <span id={selectedAVA.id} onClick={() => handleRegionClick(selectedAVA.id)}>
-              {selectedAVA.properties.Name + ' AVA'}</span>
+              <span id={selectedAVA.id} onClick={() => handleRegionClick(selectedAVA.id)}>
+                {selectedAVA.properties.Name + ' AVA'}</span>
               <p>Established in: {selectedAVA.properties.Establishe}</p>
               <p>State: {selectedAVA.properties.States}</p>
               <p>Within the AVA(s) of: {selectedAVA.properties.Within}</p>
@@ -86,44 +81,3 @@ function MapContainer() {
   );
 }
 export default MapContainer;
-
-
-
-
-
-
-
-{/* {avaData.features.map(ava => (
-      <Marker 
-      key={ava.properties.Name}
-      latitude={ava.geometry.coordinates[0][0][0][1]}
-      longitude={ava.geometry.coordinates[0][0][0][0]}
-      >
-        <button className='marker-btn'>
-          <img src='/assets/grapes.svg' alt='AVA Icon' />
-          </button>
-      </Marker>
-    ))} */}
-
-{/* {multiPolygons.map(ava => (
-      <Marker 
-      key={ava.properties.Name}
-      latitude={ava.geometry.coordinates[0][0][0][1]}
-      longitude={ava.geometry.coordinates[0][0][0][0]}
-      >
-        <button className='marker-btn'>
-          <img src='/assets/orange-pin.svg' alt='AVA Icon' />
-          </button>
-      </Marker>
-    ))} */}
-{/* {polygons.map(ava => (
-      <Marker 
-      key={ava.properties.Name}
-      latitude={ava.geometry.coordinates[0][0][1]}
-      longitude={ava.geometry.coordinates[0][0][0]}
-      >
-        <button className='marker-btn'>
-          <img src='/assets/orange-pin.svg' alt='AVA Icon' />
-          </button>
-      </Marker>
-    ))} */}
